@@ -19,11 +19,36 @@ if (portrait && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }, { passive: true });
 }
 
-/* Menú móvil (scroll suave a proyectos) */
+/* Menú móvil (toggle y cierre) */
 const menuBtn = document.getElementById('menuBtn');
-if (menuBtn) {
-  menuBtn.addEventListener('click', () => {
-    document.getElementById('proyectos').scrollIntoView({ behavior: 'smooth' });
+const navLinks = document.querySelector('.nav-links');
+if (menuBtn && navLinks) {
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('active');
+    menuBtn.classList.toggle('active', isOpen);
+    menuBtn.textContent = isOpen ? '✕' : '☰';
+    document.body.classList.toggle('no-scroll', isOpen);
+  });
+
+  // Cerrar menú al hacer click en un link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuBtn.classList.remove('active');
+      menuBtn.textContent = '☰';
+      document.body.classList.remove('no-scroll');
+    });
+  });
+
+  // Cerrar menú al hacer click fuera del navbar
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !nav.contains(e.target)) {
+      navLinks.classList.remove('active');
+      menuBtn.classList.remove('active');
+      menuBtn.textContent = '☰';
+      document.body.classList.remove('no-scroll');
+    }
   });
 }
 
