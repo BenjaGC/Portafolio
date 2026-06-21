@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="benjamín gonzález — Desarrollador web y diseño. Construyo sitios rápidos, seguros y con intención para empresas que quieren dar el salto digital.">
+<title>Benjamín González — Desarrollo & Diseño Web</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="bg-lines"></div>
+
+<nav id="nav">
+  <a href="#top" class="brand"><img src="img/logo.png" alt="Benjamín González"></a>
+  <div class="nav-links">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#sobre">Sobre mí</a>
+    <a href="#stack">Stack</a>
+    <a href="#certificados">Certificados</a>
+    <a href="#contacto" class="btn btn-primary">Hablemos <span class="arrow">↗</span></a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
+</nav>
+
+<main class="wrap">
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grad"></div>
+      <canvas class="hero-fx" id="heroFx"></canvas>
+      <!--
+        ===== IMAGEN 1: FOTO TUYA PARA EL HERO =====
+        Pon una foto tuya en:  img/perfil.jpg
+        (recomendado: foto vertical, fondo simple, buena luz)
+      -->
+      <div class="portrait" id="portrait" style="background-image:url('img/perfil.jpg')"></div>
+      <div class="fade"></div>
+    </div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Hola, soy Benjamín González —</p>
+      <h1>Desarrollo<br>web con<br>intención.</h1>
+      <p class="hero-tag">Un buen sitio no se nota. Se siente.</p>
+      <div class="hero-services">
+        <div class="hs"><div class="n">#01</div><div class="t">Desarrollo Frontend</div></div>
+        <div class="hs"><div class="n">#02</div><div class="t">Backend &amp; APIs</div></div>
+        <div class="hs"><div class="n">#03</div><div class="t">Diseño UI/UX</div></div>
+        <div class="hs"><div class="n">#04</div><div class="t">Integración con IA</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ====================== MARQUEE ====================== -->
+<section class="marquee-sec">
+  <p class="marquee-label">Lo que<br>llevo a cada proyecto</p>
+  <div class="marquee">
+    <div class="marquee-content">
+      <span class="item"><span class="dot">✦</span> Diseño</span>
+      <span class="item"><span class="dot">✦</span> Código limpio</span>
+      <span class="item"><span class="dot">✦</span> Estrategia</span>
+      <span class="item"><span class="dot">✦</span> Seguridad</span>
+      <span class="item"><span class="dot">✦</span> Deploy</span>
+      <span class="item"><span class="dot">✦</span> Diseño</span>
+      <span class="item"><span class="dot">✦</span> Código limpio</span>
+      <span class="item"><span class="dot">✦</span> Estrategia</span>
+      <span class="item"><span class="dot">✦</span> Seguridad</span>
+      <span class="item"><span class="dot">✦</span> Deploy</span>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- ====================== SOBRE MÍ ====================== -->
+  <section id="sobre" class="valueprop">
+    <div class="reveal">
+      <p class="eyebrow">Sobre mí</p>
+      <h2>Construyo<br>experiencias que<br>resuelven problemas.</h2>
+    </div>
+    <div class="right reveal">
+      <p>Soy <strong>estudiante de Ingeniería en Software en la Universidad Andrés Bello</strong> y fundador de una agencia digital que transforma ideas en sitios web que de verdad funcionan. No solo escribo código: <strong>diseño experiencias</strong> que cargan rápido, se ven impecables en cualquier pantalla y están pensadas hasta el último detalle para quien las usa.</p>
+      <p>Mi obsesión es el equilibrio entre <strong>estética y rendimiento</strong>. Domino el desarrollo de punta a punta —del frontend al backend— y trabajo con un flujo potenciado por IA que me permite entregar resultados de nivel profesional en tiempos que sorprenden. Cada proyecto que tomo lo trato como si fuera el mío: con criterio, con cuidado y con la ambición de que destaque.</p>
+      <div class="closer">
+        <p class="note">Hagamos algo<br>que valga la pena</p>
+        <a href="#contacto" class="btn btn-primary">Conversemos <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PROYECTOS ====================== -->
+  <!--
+    AQUÍ ESTÁN TUS DOS PROYECTOS.
+    Cada tarjeta enlaza a la carpeta del proyecto (proyectos/...).
+    Para agregar MÁS proyectos en el futuro, copia un bloque <a class="proj">...</a>
+    y cambia el enlace, la imagen y los textos.
+  -->
+  <section id="proyectos">
+    <div class="proj-head reveal">
+      <h2>Proyectos destacados</h2>
+      <span class="meta">2026</span>
+    </div>
+    <div class="proj-grid">
+
+      <!-- PROYECTO 1: TecnoCommerce -->
+      <a class="proj reveal" href="https://benjagc.github.io/tecnocommercee/index.html">
+        <div class="ph">
+          <!--
+            ===== IMAGEN 2: PORTADA DE TECNOCOMMERCE =====
+            Pon una captura del proyecto en:  img/proyecto-tecnocommerce.jpg
+            (recomendado: screenshot del sitio, formato horizontal)
+          -->
+          <img src="img/tecnomercee.png" alt="Proyecto TecnoCommerce">
+        </div>
+        <div class="info"><div class="cat">E-commerce</div><div class="name">TecnoCommerce</div></div>
+      </a>
+
+      <!-- PROYECTO 2: Iguana Journal -->
+      <a class="proj reveal" href="https://benjagc.github.io/IGUANA-JOURNALCL/">
+        <div class="ph">
+          <!--
+            ===== IMAGEN 3: PORTADA DE IGUANA =====
+            Pon una captura del proyecto en:  img/proyecto-iguana.jpg
+          -->
+          <img src="img/iguana_png.png" alt="Proyecto Iguana Journal">
+        </div>
+        <div class="info"><div class="cat">Editorial / Educativo</div><div class="name">Iguana Journal</div></div>
+      </a>
+
+      <!-- PROYECTO 3 (opcional, ejemplo para cuando tengas más): -->
+      <a class="proj reveal" href="#">
+        <div class="ph">
+          <!-- ===== IMAGEN 4 (opcional): img/proyecto-3.jpg ===== -->
+         
+        </div>
+        <div class="info"><div class="cat">Próximamente</div><div class="name">Tu siguiente proyecto</div></div>
+      </a>
+
+    </div>
+
+  </section>
+</main>
+
+<!-- ====================== STACK (carrusel full-width) ====================== -->
+<section class="stack-sec" id="stack">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <h2>Mi stack &amp; herramientas</h2>
+      <p>Lenguajes que manejo y las IAs con las que construyo, en flujo continuo.</p>
+    </div>
+  </div>
+  <div class="stack-carousel" id="stackCarousel">
+    <div class="stack-track" id="stackTrack">
+      <!-- Lenguajes -->
+      <div class="stack-card" data-type="lang"><span class="sc-ic">JS</span><div class="sc-name">JavaScript</div><div class="sc-tag">Lenguaje</div></div>
+      <div class="stack-card" data-type="lang"><span class="sc-ic">&lt;/&gt;</span><div class="sc-name">HTML5</div><div class="sc-tag">Marcado</div></div>
+      <div class="stack-card" data-type="lang"><span class="sc-ic">#</span><div class="sc-name">CSS3</div><div class="sc-tag">Estilos</div></div>
+      <div class="stack-card" data-type="lang"><span class="sc-ic">Py</span><div class="sc-name">Python</div><div class="sc-tag">Backend / IA</div></div>
+      <div class="stack-card" data-type="lang"><span class="sc-ic">C#</span><div class="sc-name">C#</div><div class="sc-tag">.NET / Unity</div></div>
+      <!-- IAs -->
+      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✦</span><div class="sc-name">Claude</div><div class="sc-tag">Código &amp; lógica</div></div>
+      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✶</span><div class="sc-name">Stitch</div><div class="sc-tag">Diseño UI</div></div>
+      <div class="stack-card ai" data-type="ai"><span class="sc-ic">◆</span><div class="sc-name">Antigravity</div><div class="sc-tag">Deploy &amp; testing</div></div>
+      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✧</span><div class="sc-name">Leonardo.ai</div><div class="sc-tag">Imágenes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== PROCESO (cómo trabajo) ====================== -->
+<main class="wrap">
+  <section class="process" id="proceso">
+    <div class="proc-head reveal">
+      <h2>Cómo trabajo</h2>
+      <span class="meta">Del boceto a producción</span>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-card reveal">
+        <div class="proc-n"></div>
+        <h3>Diseño</h3>
+        <p>Bocetos y prototipos con IA para definir la dirección visual antes de escribir una línea de código.</p>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-n"></div>
+        <h3>Desarrollo</h3>
+        <p>Código limpio y separado (HTML, CSS, JS), responsive y optimizado para cargar rápido.</p>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-n"></div>
+        <h3>Seguridad</h3>
+        <p>Formularios protegidos, buenas prácticas y revisión antes de publicar nada.</p>
+      </div>
+      <div class="proc-card reveal">
+        <div class="proc-n"></div>
+        <h3>Deploy</h3>
+        <p>Publicación, pruebas en distintos dispositivos y entrega lista para usar.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ====================== CERTIFICACIONES ====================== -->
+<main class="wrap">
+  <section class="certs" id="certificados">
+    <div class="cert-head reveal">
+      <h2>Certificaciones</h2>
+      <span class="meta">Formación verificada  Desafío Latam</span>
+    </div>
+    <p class="cert-intro reveal">Formación respaldada por <strong>Desafío Latam</strong>, una de las academias de tecnología más reconocidas de Latinoamérica.</p>
+    <div class="cert-grid">
+      <div class="cert-card reveal">
+        <div class="cert-top">
+          <span class="cert-ic">&lt;/&gt;</span>
+          <span class="cert-hours">70 hrs</span>
+        </div>
+        <div class="cert-name">Desarrollo Web</div>
+        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-top">
+          <span class="cert-ic">#</span>
+          <span class="cert-hours">60 hrs</span>
+        </div>
+        <div class="cert-name">CSS Avanzado</div>
+        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-top">
+          <span class="cert-ic">JS</span>
+          <span class="cert-hours">96 hrs</span>
+        </div>
+        <div class="cert-name">JavaScript para la Web</div>
+        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ====================== CONTACTO ====================== -->
+<div class="wrap">
+  <section id="contacto" class="contact reveal">
+    <div class="inner">
+      <div>
+        <h2>¿Tienes un proyecto en mente?</h2>
+        <p class="sub">Cuéntame qué necesitas. Te ayudo a llevar tu idea desde el boceto hasta un sitio en producción.</p>
+      </div>
+      <!--
+        FORMULARIO SEGURO (sin servidor propio) vía Web3Forms.
+        PASO 1: entra a https://web3forms.com y crea tu Access Key gratis.
+        PASO 2: reemplaza TU_ACCESS_KEY_AQUI abajo por tu clave.
+        Listo: los mensajes te llegarán a tu correo.
+      -->
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d2b24a4f-0ee0-4e64-99f6-0546d22262c5">
+        <input type="hidden" name="subject" value="Nuevo mensaje desde tu portafolio">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="name" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+        <textarea name="message" rows="3" placeholder="¿En qué te ayudo?" required></textarea>
+        <button type="submit" class="submit">Enviar mensaje <span class="sa">↗</span></button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+    <div class="bigmark">↗</div>
+  </section>
+</div>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+  <div>
+    <div class="fbrand">Benjamín González</div>
+    <p class="copy">© 2026 Benjamín González — Diseñado por <em>Benjamín González</em></p>
+  </div>
+  <div class="socials">
+    <!-- Cambia el # por tus enlaces reales -->
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Email</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+=================================================================
+ PORTAFOLIO — Benjamín González
+=================================================================
+
+ESTRUCTURA
+-----------------------------------------------------------------
+portafolio-final/
+├── index.html          ← página principal
+├── css/style.css       ← estilos
+├── js/main.js          ← código (limpio, sin basura)
+└── img/                ← imágenes
+    ├── tecnomercee.png   (ya incluida)
+    ├── iguana_png.png    (ya incluida)
+    ├── perfil.jpg        (PON TU FOTO AQUÍ)
+    └── proyecto-3.jpg    (opcional)
+
+QUÉ SE ARREGLÓ EN ESTA VERSIÓN
+-----------------------------------------------------------------
+✓ El carrusel de stack (lenguajes + IAs) AHORA SE VE y va a lo
+  ancho completo de la página, girando en loop. Antes estaba
+  metido dentro de un contenedor roto y no aparecía.
+✓ Código basura eliminado del main.js (de ~330 a ~217 líneas).
+✓ Nueva sección "Cómo trabajo" para que no se vea vacía.
+✓ Tildes corregidas y nombre de imagen de iguana arreglado.
+✓ Enlace "Stack" agregado al menú.
+
+ANIMACIONES ACTIVAS
+-----------------------------------------------------------------
+- Lluvia de código + QR en el fondo del hero
+- Resplandor coral que sigue el mouse
+- El hero se inclina con el mouse
+- Tarjetas de proyecto con tilt 3D
+- Marquee y carrusel de stack en loop infinito
+- Aparición de secciones al hacer scroll
+
+ANTES DE PUBLICAR
+-----------------------------------------------------------------
+1. Pon tu foto en img/perfil.jpg
+2. En index.html, cambia los enlaces de GitHub/LinkedIn/Email
+   (busca "Cambia el # por tus enlaces reales")
+3. Formulario: crea tu Access Key gratis en https://web3forms.com
+   y reemplázala donde dice "TU_ACCESS_KEY_AQUI"
+
+PUBLICAR GRATIS
+-----------------------------------------------------------------
+GitHub Pages: sube la carpeta a un repo → Settings → Pages.
+Netlify Drop: arrastra la carpeta a https://app.netlify.com/drop
+
+Diseño y código: Benjamín González · 2026
