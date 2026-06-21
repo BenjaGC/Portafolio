@@ -224,10 +224,19 @@ main{padding-top:128px;}
 .contact .submit:hover::after{left:130%;}
 .contact .submit:hover .sa{transform:translate(3px,-3px);}
 .contact .submit:active{transform:translateY(-1px) scale(0.98);}
-.contact .bigmark{position:absolute;right:-30px;bottom:-80px;font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:300px;color:rgba(19,19,21,0.06);line-height:1;pointer-events:none;z-index:1;}
-.form-status{font-size:13px;font-weight:500;min-height:18px;}
-
+.contact .bigmark{
+  position:absolute;
+  right:-20px;
+  bottom:-60px;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+  font-size:clamp(120px, 22vw, 280px);
+  color:rgba(19,19,21,0.06);
+  line-height:1;
+  pointer-events:none;
+  z-index:1;
+  user-select:none;
+}
 /* ── Footer ──────────────────────────────── */
 footer{padding:60px 5%;border-top:1px solid var(--line);
   display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
