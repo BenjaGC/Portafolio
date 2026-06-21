@@ -1,6 +1,4 @@
-/* ============================================================
-   PORTAFOLIO — Benjamín González
-   ============================================================ */
+
 
 /* Borde del nav al hacer scroll */
 const nav = document.getElementById('nav');
@@ -58,9 +56,6 @@ if (form) {
   });
 }
 
-/* ============================================================
-   MARQUEE — "Lo que llevo a cada proyecto" (loop infinito)
-   ============================================================ */
 (function () {
   const track = document.querySelector('.marquee-content');
   if (!track) return;
@@ -86,7 +81,7 @@ if (form) {
   const wrap = document.getElementById('stackCarousel');
   if (!track || !wrap) return;
 
-  // Duplicar 2 veces asegura que llene pantallas anchas sin huecos
+  
   const original = track.innerHTML;
   track.innerHTML = original + original + original;
 
@@ -108,10 +103,6 @@ if (form) {
   requestAnimationFrame(loop);
 })();
 
-/* ============================================================
-   FONDO + INTERACCIÓN: cursor glow, parallax hero, tilt tarjetas
-   (siempre activo)
-   ============================================================ */
 (function () {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) return;
@@ -127,7 +118,6 @@ if (form) {
   }
   followCursor();
 
-  /* El hero se inclina siguiendo el mouse */
   const heroInner = document.querySelector('.hero-inner');
   const heroSection = document.querySelector('.hero');
   if (heroInner && heroSection) {
@@ -144,7 +134,6 @@ if (form) {
     });
   }
 
-  /* Tarjetas de proyecto: tilt 3D con el mouse */
   document.querySelectorAll('.proj').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
@@ -160,9 +149,6 @@ if (form) {
   });
 })();
 
-/* ============================================================
-   HERO FX: código cayendo + patrones QR (siempre activo)
-   ============================================================ */
 (function () {
   const canvas = document.getElementById('heroFx');
   if (!canvas) return;
