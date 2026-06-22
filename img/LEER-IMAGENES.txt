@@ -1,18 +1,3 @@
-=================================================================
+
  IMÁGENES DEL PORTAFOLIO — carpeta img/
-=================================================================
 
-YA INCLUIDAS (no las toques):
-  ✓ tecnomercee.png   → portada del proyecto TecnoCommerce
-  ✓ iguana_png.png    → portada del proyecto Iguana Journal
-
-TIENES QUE AGREGAR:
-  1) perfil.jpg
-     → Tu foto para el hero. Vertical, buena luz, fondo simple.
-     → Si no la pones, el hero igual se ve (queda el degradado coral).
-
-  2) proyecto-3.jpg  (OPCIONAL)
-     → Solo si llenas la 3ª tarjeta "Tu siguiente proyecto".
-     → Si no, puedes borrar ese bloque en index.html.
-
-CONSEJO: imágenes de máximo ~1600px de ancho para que carguen rápido.
