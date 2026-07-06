@@ -1,267 +1,319 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="benjamín gonzález — Desarrollador web y diseño. Construyo sitios rápidos, seguros y con intención para empresas que quieren dar el salto digital.">
-<title>Benjamín González — Desarrollo & Diseño Web</title>
-<link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Benjam&iacute;n Gonz&aacute;lez, desarrollador web. Sitios r&aacute;pidos, claros y listos para vender, reservar o recibir contactos.">
+  <meta name="theme-color" content="#070b10">
+  <title>Benjam&iacute;n Gonz&aacute;lez | Desarrollo Web</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 
-<body>
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="bg-lines"></div>
+<body id="top">
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="Ir al inicio">
+      <img src="img/logo.png" alt="Benjam&iacute;n Gonz&aacute;lez">
+    </a>
 
-<nav id="nav">
-  <a href="#top" class="brand"><img src="img/logo.png" alt="Benjamín González"></a>
-  <div class="nav-links">
-    <a href="#proyectos">Proyectos</a>
-    <a href="#sobre">Sobre mí</a>
-    <a href="#stack">Stack</a>
-    <a href="#certificados">Certificados</a>
-    <a href="#contacto" class="btn btn-primary">Hablemos</a>
-  </div>
-  <button class="menu-btn" id="menuBtn" aria-label="Menú">☰</button>
-</nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+      <span></span>
+      <span></span>
+    </button>
 
-<main class="wrap">
+    <nav class="site-nav" id="siteNav" aria-label="Navegaci&oacute;n principal">
+      <a href="#trabajo">Trabajo</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#stack">Stack</a>
+      <a class="nav-cta" href="#contacto">Hablemos</a>
+    </nav>
+  </header>
 
-  
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="grad"></div>
-      <canvas class="hero-fx" id="heroFx"></canvas>
-     
-      <div class="portrait" id="portrait" style="background-image:url('img/perfil.jpg')"></div>
-      <div class="fade"></div>
-    </div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Hola, soy Benjamín González —</p>
-      <h1>Desarrollo<br>web con<br>intención.</h1>
-      <p class="hero-tag">Un buen sitio no se nota. Se siente.</p>
-      <div class="hero-services">
-        <div class="hs"><div class="n">#01</div><div class="t">Desarrollo Frontend</div></div>
-        <div class="hs"><div class="n">#02</div><div class="t">Backend &amp; APIs</div></div>
-        <div class="hs"><div class="n">#03</div><div class="t">Diseño UI/UX</div></div>
-        <div class="hs"><div class="n">#04</div><div class="t">Integración con IA</div></div>
-      </div>
-    </div>
-  </section>
-</main>
-
-
-<section class="marquee-sec">
-  <p class="marquee-label">Lo que<br>llevo a cada proyecto</p>
-  <div class="marquee">
-    <div class="marquee-content">
-      <span class="item"><span class="dot">✦</span> Diseño</span>
-      <span class="item"><span class="dot">✦</span> Código limpio</span>
-      <span class="item"><span class="dot">✦</span> Estrategia</span>
-      <span class="item"><span class="dot">✦</span> Seguridad</span>
-      <span class="item"><span class="dot">✦</span> Deploy</span>
-      <span class="item"><span class="dot">✦</span> Diseño</span>
-      <span class="item"><span class="dot">✦</span> Código limpio</span>
-      <span class="item"><span class="dot">✦</span> Estrategia</span>
-      <span class="item"><span class="dot">✦</span> Seguridad</span>
-      <span class="item"><span class="dot">✦</span> Deploy</span>
-    </div>
-  </div>
-</section>
-
-<main class="wrap">
-
-  
-  <section id="sobre" class="valueprop">
-    <div class="reveal">
-      <p class="eyebrow">Sobre mí</p>
-      <h2>Construyo<br>experiencias que<br>resuelven problemas.</h2>
-    </div>
-    <div class="right reveal">
-      <p>Soy <strong>estudiante de Ingeniería en informática en la Universidad Andrés Bello</strong> y fundador de una agencia digital que transforma ideas en sitios web que de verdad funcionan. No solo escribo código: <strong>diseño experiencias</strong> que cargan rápido, se ven impecables en cualquier pantalla y están pensadas hasta el último detalle para quien las usa.</p>
-      <p>Mi pasión es el equilibrio entre <strong>estética y rendimiento</strong>. Domino el desarrollo de punta a punta —del frontend al backend— y trabajo con un flujo potenciado por IA que me permite entregar resultados de nivel profesional en tiempos que sorprenden. Cada proyecto que tomo lo trato como si fuera el mío: con criterio, con cuidado y con la ambición de que destaque.</p>
-      <div class="closer">
-        <p class="note">Hagamos algo<br>que valga la pena</p>
-        <a href="#contacto" class="btn btn-primary">Conversemos</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <section id="proyectos">
-    <div class="proj-head reveal">
-      <h2>Proyectos demos</h2>
-      <span class="meta">2026</span>
-    </div>
-    <div class="proj-grid">
-
-    
-      <a class="proj reveal" href="https://benjagc.github.io/tecnocommercee/index.html">
-        <div class="ph">
-          
-          <img src="img/tecnomercee.png" alt="Proyecto TecnoCommerce">
+  <main>
+    <section class="hero section-shell" aria-labelledby="heroTitle">
+      <div class="hero-copy reveal">
+        <p class="section-kicker">Dise&ntilde;o y desarrollo web para negocios reales</p>
+        <h1 id="heroTitle">Sitios claros, veloces y pensados para convertir.</h1>
+        <p class="hero-lede">
+          Soy Benjam&iacute;n Gonz&aacute;lez. Dise&ntilde;o y desarrollo p&aacute;ginas web para marcas, proyectos y negocios locales que quieren verse serios desde el primer click.
+        </p>
+        <div class="hero-actions" aria-label="Acciones principales">
+          <a class="button button-primary" href="#trabajo">
+            Ver proyectos <span aria-hidden="true">-&gt;</span>
+          </a>
+          <a class="button button-secondary" href="#contacto">
+            Cotizar web <span aria-hidden="true">-&gt;</span>
+          </a>
         </div>
-        <div class="info"><div class="cat">E-commerce</div><div class="name">TecnoCommerce</div></div>
-      </a>
+      </div>
 
-     
-      <a class="proj reveal" href="https://benjagc.github.io/IGUANA-JOURNALCL/">
-        <div class="ph">
-          
-          <img src="img/iguana_png.png" alt="Proyecto Iguana Journal">
+      <aside class="hero-panel reveal" aria-label="Resumen de servicio">
+        <div class="panel-top">
+          <span>M&eacute;todo de trabajo</span>
+          <span>Disponible 2026</span>
         </div>
-        <div class="info"><div class="cat">Editorial / Educativo</div><div class="name">Iguana Journal</div></div>
-      </a>
-
-      
-      <a class="proj reveal" href="#">
-        <div class="ph">
-       
-         
+        <div class="panel-statement">
+          <span class="panel-label">Lo que entrego</span>
+          <strong>Dise&ntilde;o visual, c&oacute;digo claro y publicaci&oacute;n cuidada para que el cliente conf&iacute;e antes de escribirte.</strong>
         </div>
-        <div class="info"><div class="cat">Próximamente</div><div class="name">Tu siguiente proyecto</div></div>
-      </a>
+        <dl class="hero-facts">
+          <div>
+            <dt>Entrega</dt>
+            <dd>3-7 d&iacute;as</dd>
+          </div>
+          <div>
+            <dt>Base</dt>
+            <dd>HTML, CSS, JS</dd>
+          </div>
+          <div>
+            <dt>Foco</dt>
+            <dd>Contacto y confianza</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
 
-    </div>
-
-  </section>
-</main>
-
-
-<section class="stack-sec" id="stack">
-  <div class="wrap">
-    <div class="stack-head reveal">
-      <h2>Mi stack &amp; herramientas</h2>
-      <p>Lenguajes que manejo y las IAs con las que construyo, en flujo continuo.</p>
-    </div>
-  </div>
-  <div class="stack-carousel" id="stackCarousel">
-    <div class="stack-track" id="stackTrack">
-      <!-- Lenguajes -->
-      <div class="stack-card" data-type="lang"><span class="sc-ic">JS</span><div class="sc-name">JavaScript</div><div class="sc-tag">Lenguaje</div></div>
-      <div class="stack-card" data-type="lang"><span class="sc-ic">&lt;/&gt;</span><div class="sc-name">HTML5</div><div class="sc-tag">Marcado</div></div>
-      <div class="stack-card" data-type="lang"><span class="sc-ic">#</span><div class="sc-name">CSS3</div><div class="sc-tag">Estilos</div></div>
-      <div class="stack-card" data-type="lang"><span class="sc-ic">Py</span><div class="sc-name">Python</div><div class="sc-tag">Backend / IA</div></div>
-      <div class="stack-card" data-type="lang"><span class="sc-ic">C#</span><div class="sc-name">C#</div><div class="sc-tag">.NET / Unity</div></div>
-      <!-- IAs -->
-      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✦</span><div class="sc-name">Claude</div><div class="sc-tag">Código &amp; lógica</div></div>
-      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✶</span><div class="sc-name">Stitch</div><div class="sc-tag">Diseño UI</div></div>
-      <div class="stack-card ai" data-type="ai"><span class="sc-ic">◆</span><div class="sc-name">Antigravity</div><div class="sc-tag">Deploy &amp; testing</div></div>
-      <div class="stack-card ai" data-type="ai"><span class="sc-ic">✧</span><div class="sc-name">Leonardo.ai</div><div class="sc-tag">Imágenes</div></div>
-    </div>
-  </div>
-</section>
-
-
-<main class="wrap">
-  <section class="process" id="proceso">
-    <div class="proc-head reveal">
-      <h2>Cómo trabajo</h2>
-      <span class="meta">Del boceto a producción</span>
-    </div>
-    <div class="proc-grid">
-      <div class="proc-card reveal">
-        <div class="proc-n"></div>
-        <h3>Diseño</h3>
-        <p>Bocetos y prototipos con IA para definir la dirección visual antes de escribir una línea de código.</p>
+    <section class="ticker" aria-label="Capacidades">
+      <div class="ticker-track">
+        <span>Landing pages</span>
+        <span>Portafolios</span>
+        <span>E-commerce demo</span>
+        <span>SEO base</span>
+        <span>Deploy</span>
+        <span>Automatizaci&oacute;n</span>
+        <span>Landing pages</span>
+        <span>Portafolios</span>
+        <span>E-commerce demo</span>
+        <span>SEO base</span>
+        <span>Deploy</span>
+        <span>Automatizaci&oacute;n</span>
       </div>
-      <div class="proc-card reveal">
-        <div class="proc-n"></div>
-        <h3>Desarrollo</h3>
-        <p>Código limpio y separado (HTML, CSS, JS), responsive y optimizado para cargar rápido.</p>
-      </div>
-      <div class="proc-card reveal">
-        <div class="proc-n"></div>
-        <h3>Seguridad</h3>
-        <p>Formularios protegidos, buenas prácticas y revisión antes de publicar nada.</p>
-      </div>
-      <div class="proc-card reveal">
-        <div class="proc-n"></div>
-        <h3>Deploy</h3>
-        <p>Publicación, pruebas en distintos dispositivos y entrega lista para usar.</p>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<!-- ====================== CERTIFICACIONES ====================== -->
-<main class="wrap">
-  <section class="certs" id="certificados">
-    <div class="cert-head reveal">
-      <h2>Certificaciones</h2>
-      <span class="meta">Formación verificada  Desafío Latam</span>
-    </div>
-    <p class="cert-intro reveal">Formación respaldada por <strong>Desafío Latam</strong>, una de las academias de tecnología más reconocidas de Latinoamérica.</p>
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-top">
-          <span class="cert-ic">&lt;/&gt;</span>
-          <span class="cert-hours">70 hrs</span>
+    <section class="section-shell intro-section reveal" aria-labelledby="introTitle">
+      <p class="section-kicker">Perfil</p>
+      <div class="intro-grid">
+        <h2 id="introTitle">Trabajo como un puente entre dise&ntilde;o, negocio y c&oacute;digo.</h2>
+        <div class="intro-copy">
+          <p>
+            Estudio Ingenier&iacute;a en Inform&aacute;tica en la Universidad Andr&eacute;s Bello y construyo sitios con una mezcla de criterio visual, bases t&eacute;cnicas y herramientas modernas.
+          </p>
+          <p>
+            Mi objetivo no es llenar una pantalla de efectos: es ordenar la oferta, crear confianza y dejar una web lista para publicar, medir y mejorar.
+          </p>
         </div>
-        <div class="cert-name">Desarrollo Web</div>
-        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
       </div>
-      <div class="cert-card reveal">
-        <div class="cert-top">
-          <span class="cert-ic">#</span>
-          <span class="cert-hours">60 hrs</span>
-        </div>
-        <div class="cert-name">CSS Avanzado</div>
-        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-top">
-          <span class="cert-ic">JS</span>
-          <span class="cert-hours">96 hrs</span>
-        </div>
-        <div class="cert-name">JavaScript para la Web</div>
-        <div class="cert-org"><span class="cert-check">✓</span> Desafío Latam · 2022</div>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<!-- ====================== CONTACTO ====================== -->
-<div class="wrap">
-  <section id="contacto" class="contact reveal">
-    <div class="inner">
-      <div>
-        <h2>¿Tienes un proyecto en mente?</h2>
-        <p class="sub">Cuéntame qué necesitas. Te ayudo a llevar tu idea desde el boceto hasta un sitio en producción.</p>
+    <section class="section-shell work-section" id="trabajo" aria-labelledby="workTitle">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Trabajo seleccionado</p>
+        <h2 id="workTitle">Proyectos con intenci&oacute;n distinta.</h2>
       </div>
-     
-      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="d2b24a4f-0ee0-4e64-99f6-0546d22262c5">
-        <input type="hidden" name="subject" value="Nuevo mensaje desde tu portafolio">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="text" name="name" placeholder="Tu nombre" required>
-        <input type="email" name="email" placeholder="Tu correo" required>
-        <textarea name="message" rows="3" placeholder="¿En qué te ayudo?" required></textarea>
-        <button type="submit" class="submit">Enviar mensaje</button>
-        <p class="form-status" id="formStatus"></p>
+
+      <article class="project-feature reveal">
+        <a class="project-image" href="https://www.veredicto-ia.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Veredicto IA">
+          <img src="img/veredicto-ia.png" alt="Captura real del sitio Veredicto IA" loading="lazy">
+        </a>
+        <div class="project-copy">
+          <p class="project-type">Proyecto propio / Plataforma IA</p>
+          <h3>Veredicto IA</h3>
+          <p>
+            Sitio para descubrir, comparar y entender herramientas de inteligencia artificial con una lectura m&aacute;s editorial y pr&aacute;ctica.
+          </p>
+          <ul class="project-points" aria-label="Detalles de Veredicto IA">
+            <li>Arquitectura de contenido orientada a b&uacute;squeda y decisi&oacute;n.</li>
+            <li>Dise&ntilde;o de interfaz para categor&iacute;as, fichas y herramientas.</li>
+            <li>Proyecto real usado como base para vender nuevos sitios.</li>
+          </ul>
+          <a class="text-link" href="https://www.veredicto-ia.com/" target="_blank" rel="noopener noreferrer">
+            Visitar veredicto-ia.com <span aria-hidden="true">-&gt;</span>
+          </a>
+        </div>
+      </article>
+
+      <div class="project-grid" aria-label="Otros proyectos">
+        <a class="project-card reveal" href="https://benjagc.github.io/tecnocommercee/index.html" target="_blank" rel="noopener noreferrer">
+          <img src="img/tecnomercee.png" alt="Vista del proyecto TecnoCommerce" loading="lazy">
+          <span class="project-type">E-commerce demo</span>
+          <strong>TecnoCommerce</strong>
+          <p>Una experiencia de venta para hardware con foco en producto, configuraci&oacute;n y confianza.</p>
+        </a>
+
+        <a class="project-card reveal" href="https://benjagc.github.io/IGUANA-JOURNALCL/" target="_blank" rel="noopener noreferrer">
+          <img src="img/iguana_png.png" alt="Vista del proyecto Iguana Journal" loading="lazy">
+          <span class="project-type">Editorial interactivo</span>
+          <strong>Iguana Journal</strong>
+          <p>Un sitio educativo con una direcci&oacute;n visual fuerte, pensado para explorar contenido de forma entretenida.</p>
+        </a>
+
+        <a class="project-card project-card-offer reveal" href="#contacto">
+          <div class="offer-mark" aria-hidden="true">BG</div>
+          <span class="project-type">Nuevo servicio</span>
+          <strong>Tu web comercial</strong>
+          <p>Landing o sitio completo para mostrar servicios, recibir mensajes por correo y dirigir clientes a WhatsApp.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="section-shell services-section" id="servicios" aria-labelledby="servicesTitle">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Servicios</p>
+        <h2 id="servicesTitle">Paquetes simples para empezar sin vueltas.</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card reveal">
+          <span class="service-tag">01</span>
+          <h3>Landing express</h3>
+          <p>Una p&aacute;gina enfocada en explicar, mostrar confianza y conseguir contacto.</p>
+          <ul>
+            <li>Copy base y estructura</li>
+            <li>Responsive m&oacute;vil</li>
+            <li>Formulario o mail directo</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-tag">02</span>
+          <h3>Sitio completo</h3>
+          <p>Una web con secciones o p&aacute;ginas para servicios, proyectos, equipo y contacto.</p>
+          <ul>
+            <li>Dise&ntilde;o visual propio</li>
+            <li>SEO t&eacute;cnico inicial</li>
+            <li>Publicaci&oacute;n en hosting</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <span class="service-tag">03</span>
+          <h3>Mejora de web</h3>
+          <p>Auditor&iacute;a y redise&ntilde;o para una p&aacute;gina que ya existe pero no se siente profesional.</p>
+          <ul>
+            <li>Revisi&oacute;n visual y t&eacute;cnica</li>
+            <li>Mejoras de velocidad</li>
+            <li>Orden de contenido</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell process-section" id="proceso" aria-labelledby="processTitle">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Proceso</p>
+        <h2 id="processTitle">Un flujo corto, visible y ordenado.</h2>
+      </div>
+
+      <ol class="process-list">
+        <li class="reveal">
+          <span>Brief</span>
+          <p>Definimos objetivo, p&uacute;blico, secciones, referencias y contenido disponible.</p>
+        </li>
+        <li class="reveal">
+          <span>Direcci&oacute;n</span>
+          <p>Armo una l&iacute;nea visual y una estructura que sostenga el mensaje del negocio.</p>
+        </li>
+        <li class="reveal">
+          <span>Construcci&oacute;n</span>
+          <p>Desarrollo el sitio en archivos limpios, revisables y f&aacute;ciles de subir a GitHub.</p>
+        </li>
+        <li class="reveal">
+          <span>Entrega</span>
+          <p>Probamos responsive, enlaces, rendimiento base y dejamos lista la publicaci&oacute;n.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section-shell stack-section" id="stack" aria-labelledby="stackTitle">
+      <div class="stack-copy reveal">
+        <p class="section-kicker">Stack</p>
+        <h2 id="stackTitle">Herramientas que uso sin volver la web pesada.</h2>
+        <p>Elijo el stack por el problema, no por moda. Para sitios comerciales, menos dependencia suele significar m&aacute;s velocidad y menos mantenimiento.</p>
+      </div>
+
+      <div class="stack-list reveal" aria-label="Tecnolog&iacute;as y herramientas">
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>JavaScript</span>
+        <span>Python</span>
+        <span>C#</span>
+        <span>Astro</span>
+        <span>Cloudflare Pages</span>
+        <span>GitHub Pages</span>
+        <span>IA aplicada</span>
+        <span>Canva</span>
+      </div>
+    </section>
+
+    <section class="section-shell credentials-section" aria-labelledby="credentialsTitle">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Formaci&oacute;n</p>
+        <h2 id="credentialsTitle">Bases t&eacute;cnicas y pr&aacute;ctica constante.</h2>
+      </div>
+
+      <div class="credential-grid">
+        <article class="credential-card reveal">
+          <span>Desaf&iacute;o Latam</span>
+          <strong>Desarrollo Web</strong>
+          <p>70 hrs / 2022</p>
+        </article>
+        <article class="credential-card reveal">
+          <span>Desaf&iacute;o Latam</span>
+          <strong>CSS Avanzado</strong>
+          <p>60 hrs / 2022</p>
+        </article>
+        <article class="credential-card reveal">
+          <span>Desaf&iacute;o Latam</span>
+          <strong>JavaScript para la Web</strong>
+          <p>96 hrs / 2022</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section section-shell reveal" id="contacto" aria-labelledby="contactTitle">
+      <div class="contact-copy">
+        <p class="section-kicker">Contacto</p>
+        <h2 id="contactTitle">Cu&eacute;ntame qu&eacute; web necesitas construir.</h2>
+        <p>Respondo con una propuesta simple: alcance, plazo y precio. Sin formulario con claves p&uacute;blicas ni pasos raros.</p>
+        <div class="contact-links">
+          <a href="mailto:gonzalezbenjamin530@gmail.com">gonzalezbenjamin530@gmail.com</a>
+          <a href="https://github.com/BenjaGC" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/benjamin-gonzalez-b456b5259/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" data-email="gonzalezbenjamin530@gmail.com">
+        <label>
+          Nombre
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>
+          Correo
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>
+          Mensaje
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button class="button button-dark" type="submit">
+          Abrir correo <span aria-hidden="true">-&gt;</span>
+        </button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
-    </div>
- 
-  </section>
-</div>
+    </section>
+  </main>
 
-<!-- ====================== FOOTER ====================== -->
-<footer>
-  <div>
-    <div class="fbrand">Benjamín González</div>
-    <p class="copy">© 2026 Benjamín González — Diseñado por <em>Benjamín González</em></p>
-  </div>
-  <div class="socials">
-    
-    <a href="https://github.com/BenjaGC">GitHub</a>
-    <a href="https://www.linkedin.com/in/benjamin-gonzalez-b456b5259/">LinkedIn</a>
-    <a href="mailto:gonzalezbenjamin530@gmail.com">Email</a>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
+  <footer class="site-footer">
+    <p><strong>Benjam&iacute;n Gonz&aacute;lez</strong> / Desarrollo Web</p>
+    <p>(c) 2026. Dise&ntilde;o y c&oacute;digo propio.</p>
+  </footer>
 </body>
 </html>

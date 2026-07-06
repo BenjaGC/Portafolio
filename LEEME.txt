@@ -1,49 +1,43 @@
-=================================================================
- PORTAFOLIO — Benjamín González
-=================================================================
+PORTAFOLIO - BENJAMIN GONZALEZ
+================================
 
-ESTRUCTURA
------------------------------------------------------------------
-portafolio-final/
-├── index.html          ← página principal
-├── css/style.css       ← estilos
-├── js/main.js          ← código (limpio, sin basura)
-└── img/                ← imágenes
-    ├── tecnomercee.png   (ya incluida)
-    ├── iguana_png.png    (ya incluida)
-    ├── perfil.jpg        (PON TU FOTO AQUÍ)
-    └── proyecto-3.jpg    (opcional)
+Estructura
+----------
+index.html        Pagina principal
+css/style.css     Estilos del sitio
+js/main.js        Interacciones pequenas
+img/              Imagenes del portafolio
 
-QUÉ SE ARREGLÓ EN ESTA VERSIÓN
------------------------------------------------------------------
-✓ El carrusel de stack (lenguajes + IAs) AHORA SE VE y va a lo
-  ancho completo de la página, girando en loop. Antes estaba
-  metido dentro de un contenedor roto y no aparecía.
-✓ Código basura eliminado del main.js (de ~330 a ~217 líneas).
-✓ Nueva sección "Cómo trabajo" para que no se vea vacía.
-✓ Tildes corregidas y nombre de imagen de iguana arreglado.
-✓ Enlace "Stack" agregado al menú.
+Cambios principales
+-------------------
+- Se corrigio el texto roto por encoding.
+- Se agrego Veredicto IA como proyecto principal.
+- Se reemplazo el mockup de Veredicto IA por una captura real de www.veredicto-ia.com.
+- Se actualizaron las tipografias: Space Grotesk, Plus Jakarta Sans y JetBrains Mono.
+- Se cambio la paleta a un sistema mas informatico: grafito, cyan, azul y verde terminal.
+- Se agregaron animaciones con GSAP y ScrollTrigger como mejora progresiva.
+- Se agrego indicador de progreso de scroll.
+- Se elimino la dependencia de una imagen de perfil que no existia.
+- Se reemplazo el formulario con access key publica por un flujo mailto.
+- Se limpio el JavaScript para dejar solo nav movil, reveal y contacto.
+- Se rehizo la direccion visual para que se sienta mas profesional y menos generica.
 
-ANIMACIONES ACTIVAS
------------------------------------------------------------------
-- Lluvia de código + QR en el fondo del hero
-- Resplandor coral que sigue el mouse
-- El hero se inclina con el mouse
-- Tarjetas de proyecto con tilt 3D
-- Marquee y carrusel de stack en loop infinito
-- Aparición de secciones al hacer scroll
+Notas de codigo
+---------------
+- No hay framework ni build step. Puedes abrir index.html directamente.
+- El sitio usa HTML, CSS y JS plano para que GitHub Pages lo publique facil.
+- GSAP se carga por CDN. Si no carga, el contenido sigue visible y usable.
+- El formulario no envia datos a servidores externos: prepara un correo en el cliente.
+- Si quieres volver a usar un proveedor de formularios, no subas claves privadas al repositorio.
 
-ANTES DE PUBLICAR
------------------------------------------------------------------
-1. Pon tu foto en img/perfil.jpg
-2. En index.html, cambia los enlaces de GitHub/LinkedIn/Email
-   (busca "Cambia el # por tus enlaces reales")
-3. Formulario: crea tu Access Key gratis en https://web3forms.com
-   y reemplázala donde dice "TU_ACCESS_KEY_AQUI"
+Publicacion
+-----------
+GitHub Pages:
+1. Sube esta carpeta a tu repo.
+2. En GitHub, entra a Settings > Pages.
+3. Publica desde la rama principal.
 
-PUBLICAR GRATIS
------------------------------------------------------------------
-GitHub Pages: sube la carpeta a un repo → Settings → Pages.
-Netlify Drop: arrastra la carpeta a https://app.netlify.com/drop
-
-Diseño y código: Benjamín González · 2026
+Proyecto destacado
+------------------
+Veredicto IA:
+https://www.veredicto-ia.com/
