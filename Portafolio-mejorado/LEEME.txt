@@ -1,0 +1,43 @@
+PORTAFOLIO - BENJAMIN GONZALEZ
+================================
+
+Estructura
+----------
+index.html        Pagina principal
+css/style.css     Estilos del sitio
+js/main.js        Interacciones pequenas
+img/              Imagenes del portafolio
+
+Cambios principales
+-------------------
+- Se corrigio el texto roto por encoding.
+- Se agrego Veredicto IA como proyecto principal.
+- Se reemplazo el mockup de Veredicto IA por una captura real de www.veredicto-ia.com.
+- Se actualizaron las tipografias: Space Grotesk, Plus Jakarta Sans y JetBrains Mono.
+- Se cambio la paleta a un sistema mas informatico: grafito, cyan, azul y verde terminal.
+- Se agregaron animaciones con GSAP y ScrollTrigger como mejora progresiva.
+- Se agrego indicador de progreso de scroll.
+- Se elimino la dependencia de una imagen de perfil que no existia.
+- Se reemplazo el formulario con access key publica por un flujo mailto.
+- Se limpio el JavaScript para dejar solo nav movil, reveal y contacto.
+- Se rehizo la direccion visual para que se sienta mas profesional y menos generica.
+
+Notas de codigo
+---------------
+- No hay framework ni build step. Puedes abrir index.html directamente.
+- El sitio usa HTML, CSS y JS plano para que GitHub Pages lo publique facil.
+- GSAP se carga por CDN. Si no carga, el contenido sigue visible y usable.
+- El formulario no envia datos a servidores externos: prepara un correo en el cliente.
+- Si quieres volver a usar un proveedor de formularios, no subas claves privadas al repositorio.
+
+Publicacion
+-----------
+GitHub Pages:
+1. Sube esta carpeta a tu repo.
+2. En GitHub, entra a Settings > Pages.
+3. Publica desde la rama principal.
+
+Proyecto destacado
+------------------
+Veredicto IA:
+https://www.veredicto-ia.com/
