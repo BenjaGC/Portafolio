@@ -3,13 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Benjam&iacute;n Gonz&aacute;lez, desarrollador web. Sitios r&aacute;pidos, claros y listos para vender, reservar o recibir contactos.">
+  <meta name="description" content="Benjam&iacute;n Gonz&aacute;lez, desarrollador web. Sitios r&aacute;pidos para negocios locales que necesitan verse profesionales y recibir clientes.">
   <meta name="theme-color" content="#070b10">
   <title>Benjam&iacute;n Gonz&aacute;lez | Desarrollo Web</title>
   <link rel="icon" type="image/png" href="img/favicon.png">
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        document.documentElement.dataset.theme = savedTheme === "light" ? "light" : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Oxanium:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
@@ -23,11 +33,6 @@
       <img src="img/logo.png" alt="Benjam&iacute;n Gonz&aacute;lez">
     </a>
 
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
-      <span></span>
-      <span></span>
-    </button>
-
     <nav class="site-nav" id="siteNav" aria-label="Navegaci&oacute;n principal">
       <a href="#trabajo">Trabajo</a>
       <a href="#servicios">Servicios</a>
@@ -35,15 +40,30 @@
       <a href="#stack">Stack</a>
       <a class="nav-cta" href="#contacto">Hablemos</a>
     </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+        <span class="theme-toggle-track" aria-hidden="true">
+          <span class="theme-toggle-sun"></span>
+          <span class="theme-toggle-moon"></span>
+          <span class="theme-toggle-thumb"></span>
+        </span>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
   <main>
     <section class="hero section-shell" aria-labelledby="heroTitle">
       <div class="hero-copy reveal">
-        <p class="section-kicker">Dise&ntilde;o y desarrollo web para negocios reales</p>
-        <h1 id="heroTitle">Sitios claros, veloces y pensados para convertir.</h1>
+        <p class="section-kicker">Dise&ntilde;o y desarrollo web para negocios locales</p>
+        <h1 id="heroTitle">Webs que venden, reservan y generan confianza.</h1>
         <p class="hero-lede">
-          Soy Benjam&iacute;n Gonz&aacute;lez. Dise&ntilde;o y desarrollo p&aacute;ginas web para marcas, proyectos y negocios locales que quieren verse serios desde el primer click.
+          Soy Benjam&iacute;n Gonz&aacute;lez. Construyo sitios para barber&iacute;as, peluquer&iacute;as y servicios que quieren verse serios desde el primer click y recibir m&aacute;s consultas.
         </p>
         <div class="hero-actions" aria-label="Acciones principales">
           <a class="button button-primary" href="#trabajo">
@@ -184,29 +204,29 @@
 
       <div class="service-grid">
         <article class="service-card reveal">
-          <span class="service-tag">01</span>
-          <h3>Landing express</h3>
-          <p>Una p&aacute;gina enfocada en explicar, mostrar confianza y conseguir contacto.</p>
+          <span class="service-tag">Express</span>
+          <h3>Web Express</h3>
+          <p>Una p&aacute;gina directa para mostrar servicios, trabajos, ubicaci&oacute;n y contacto.</p>
           <ul>
-            <li>Copy base y estructura</li>
-            <li>Responsive m&oacute;vil</li>
-            <li>Formulario o mail directo</li>
+            <li>Desde $89.990</li>
+            <li>Entrega en 3-5 d&iacute;as</li>
+            <li>Lista para Instagram y Google</li>
           </ul>
         </article>
 
         <article class="service-card reveal">
-          <span class="service-tag">02</span>
-          <h3>Sitio completo</h3>
-          <p>Una web con secciones o p&aacute;ginas para servicios, proyectos, equipo y contacto.</p>
+          <span class="service-tag">Reservas</span>
+          <h3>Web con agenda</h3>
+          <p>Un sitio pensado para negocios que viven de horarios, turnos y mensajes r&aacute;pidos.</p>
           <ul>
-            <li>Dise&ntilde;o visual propio</li>
-            <li>SEO t&eacute;cnico inicial</li>
-            <li>Publicaci&oacute;n en hosting</li>
+            <li>Desde $149.990</li>
+            <li>Bot&oacute;n de reserva o WhatsApp</li>
+            <li>Ideal para barber&iacute;as y peluquer&iacute;as</li>
           </ul>
         </article>
 
         <article class="service-card reveal">
-          <span class="service-tag">03</span>
+          <span class="service-tag">Pulido</span>
           <h3>Mejora de web</h3>
           <p>Auditor&iacute;a y redise&ntilde;o para una p&aacute;gina que ya existe pero no se siente profesional.</p>
           <ul>
@@ -293,8 +313,8 @@
     <section class="contact-section section-shell reveal" id="contacto" aria-labelledby="contactTitle">
       <div class="contact-copy">
         <p class="section-kicker">Contacto</p>
-        <h2 id="contactTitle">Cu&eacute;ntame qu&eacute; web necesitas construir.</h2>
-        <p>Respondo con una propuesta simple: alcance, plazo y precio. Sin formulario con claves p&uacute;blicas ni pasos raros.</p>
+        <h2 id="contactTitle">Cu&eacute;ntame qu&eacute; web necesitas vender.</h2>
+        <p>Si ya tienes Instagram, fotos o una idea de servicios, respondo con un pack recomendado, alcance, plazo y precio.</p>
         <div class="contact-links">
           <a href="mailto:gonzalezbenjamin530@gmail.com">gonzalezbenjamin530@gmail.com</a>
           <a href="https://github.com/BenjaGC" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -305,15 +325,15 @@
       <form class="contact-form" id="contactForm" data-email="gonzalezbenjamin530@gmail.com">
         <label>
           Nombre
-          <input type="text" name="name" autocomplete="name" required>
+          <input type="text" name="name" autocomplete="name" placeholder="Tu nombre" required>
         </label>
         <label>
           Correo
-          <input type="email" name="email" autocomplete="email" required>
+          <input type="email" name="email" autocomplete="email" placeholder="tu@email.com" required>
         </label>
         <label>
           Mensaje
-          <textarea name="message" rows="4" required></textarea>
+          <textarea name="message" rows="4" placeholder="Quiero una web para..." required></textarea>
         </label>
         <button class="button button-dark" type="submit">
           Abrir correo <span aria-hidden="true">-&gt;</span>
