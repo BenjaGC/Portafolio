@@ -15,11 +15,11 @@ Cambios principales
 - Se reemplazo el mockup de Veredicto IA por una captura real de www.veredicto-ia.com.
 - Se actualizaron las tipografias: Space Grotesk, Plus Jakarta Sans y JetBrains Mono.
 - Se cambio la paleta a un sistema mas informatico: grafito, cyan, azul y verde terminal.
-- Se agregaron animaciones con GSAP y ScrollTrigger como mejora progresiva.
+- Se dejo GSAP solo para la entrada inicial del hero, sin animaciones de scroll.
 - Se agrego indicador de progreso de scroll.
 - Se elimino la dependencia de una imagen de perfil que no existia.
 - Se reemplazo el formulario con access key publica por un flujo mailto.
-- Se limpio el JavaScript para dejar solo nav movil, reveal y contacto.
+- Se limpio el JavaScript para dejar solo nav movil, progreso de scroll, hero y contacto.
 - Se rehizo la direccion visual para que se sienta mas profesional y menos generica.
 
 Notas de codigo
