@@ -1,164 +1,215 @@
-const header = document.getElementById("siteHeader");
-const navToggle = document.getElementById("navToggle");
-const siteNav = document.getElementById("siteNav");
-const themeToggle = document.getElementById("themeToggle");
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-const scrollProgress = document.getElementById("scrollProgress");
-const themeMeta = document.querySelector("meta[name='theme-color']");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const themeKey = "portfolio-theme";
-let progressTicking = false;
+(() => {
+  "use strict";
+  document.documentElement.classList.add("js");
+  const nav = document.getElementById("siteNav");
+  const toggle = document.getElementById("navToggle");
+  const mobile = window.matchMedia("(max-width: 800px)");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const themeButton = document.getElementById("themeToggle");
 
-function setTheme(theme, options = {}) {
-  const normalizedTheme = theme === "light" ? "light" : "dark";
-  const isLight = normalizedTheme === "light";
-
-  document.documentElement.dataset.theme = normalizedTheme;
-
-  if (themeToggle) {
-    themeToggle.setAttribute("aria-pressed", String(isLight));
-    themeToggle.setAttribute("aria-label", isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro");
+  function setMenu(open, returnFocus = false) {
+    const expanded = mobile.matches && open;
+    toggle.setAttribute("aria-expanded", String(expanded));
+    nav.classList.toggle("is-open", expanded);
+    nav.inert = mobile.matches && !expanded;
+    document.body.classList.toggle("menu-open", expanded);
+    if (returnFocus) toggle.focus();
   }
+  setMenu(false);
+  toggle.addEventListener("click", () =>
+    setMenu(toggle.getAttribute("aria-expanded") !== "true"),
+  );
+  mobile.addEventListener("change", () => setMenu(false));
+  nav
+    .querySelectorAll("a")
+    .forEach((link) => link.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", (event) => {
+    if (toggle.getAttribute("aria-expanded") !== "true") return;
+    if (event.key === "Escape") setMenu(false, true);
+    if (event.key === "Tab") {
+      const lastLink = nav.querySelector("a:last-child");
+      if (event.shiftKey && document.activeElement === toggle) {
+        event.preventDefault();
+        lastLink.focus();
+      } else if (!event.shiftKey && document.activeElement === lastLink) {
+        event.preventDefault();
+        toggle.focus();
+      }
+    }
+  });
+  document.addEventListener("click", (event) => {
+    if (
+      toggle.getAttribute("aria-expanded") === "true" &&
+      !event.target.closest(".site-header")
+    )
+      setMenu(false);
+  });
 
-  if (themeMeta) {
-    themeMeta.setAttribute("content", isLight ? "#f6fbff" : "#070b10");
-  }
-
-  if (options.persist) {
-    try {
-      localStorage.setItem(themeKey, normalizedTheme);
-    } catch {
-      // The theme still changes when storage is unavailable.
+  function applyTheme(theme, persist = false) {
+    const dark = theme === "dark";
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    document.querySelector('meta[name="theme-color"]').content = dark
+      ? "#1b1f1d"
+      : "#f0f1ed";
+    themeButton.setAttribute("aria-pressed", String(dark));
+    themeButton.setAttribute(
+      "aria-label",
+      dark ? "Cambiar a tema claro" : "Cambiar a tema oscuro",
+    );
+    document.getElementById("themeLabel").textContent = dark
+      ? "Tema claro"
+      : "Tema oscuro";
+    if (persist) {
+      try {
+        localStorage.setItem("portfolio-theme", dark ? "dark" : "light");
+      } catch {
+        /* The theme works without storage. */
+      }
     }
   }
-}
-
-setTheme(document.documentElement.dataset.theme, { persist: false });
-
-function setHeaderState() {
-  if (!header) return;
-  header.classList.toggle("is-scrolled", window.scrollY > 16);
-}
-
-function setMenu(open) {
-  if (!navToggle || !siteNav) return;
-  navToggle.setAttribute("aria-expanded", String(open));
-  navToggle.setAttribute("aria-label", open ? "Cerrar menu" : "Abrir menu");
-  siteNav.classList.toggle("is-open", open);
-  document.body.classList.toggle("menu-open", open);
-}
-
-function updateProgressFallback() {
-  if (!scrollProgress) return;
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-  scrollProgress.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
-}
-
-function requestProgressUpdate() {
-  if (progressTicking) return;
-  progressTicking = true;
-  window.requestAnimationFrame(() => {
-    updateProgressFallback();
-    progressTicking = false;
-  });
-}
-
-window.addEventListener("scroll", setHeaderState, { passive: true });
-window.addEventListener("scroll", requestProgressUpdate, { passive: true });
-setHeaderState();
-updateProgressFallback();
-
-if (navToggle && siteNav) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-    setMenu(!isOpen);
-  });
-
-  siteNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setMenu(false));
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenu(false);
-  });
-}
-
-if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    const currentTheme = document.documentElement.dataset.theme === "light" ? "light" : "dark";
-    setTheme(currentTheme === "light" ? "dark" : "light", { persist: true });
-  });
-}
-
-if (window.gsap && !reduceMotion) {
-  gsap.defaults({ ease: "power3.out", duration: 0.8 });
-
-  const heroReveals = gsap.utils.toArray(".hero .reveal");
-  gsap.set(heroReveals, { autoAlpha: 0, y: 22 });
-
-  gsap.timeline({ defaults: { duration: 0.9 } })
-    .from(".brand", { autoAlpha: 0, y: -12 })
-    .from(".site-nav a", { autoAlpha: 0, y: -10, stagger: 0.05 }, "-=0.65")
-    .to(heroReveals, { autoAlpha: 1, y: 0, stagger: 0.12 }, "-=0.35")
-    .from(".hero-copy h1", { y: 18, autoAlpha: 0, duration: 1 }, "-=0.75");
-}
-
-const navLinks = [...document.querySelectorAll(".site-nav a[href^='#']")];
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-
-if (sections.length && "IntersectionObserver" in window) {
-  const activeObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((link) => {
-          const isActive = link.getAttribute("href") === `#${entry.target.id}`;
-          link.classList.toggle("is-active", isActive);
-          if (isActive) {
-            link.setAttribute("aria-current", "page");
-          } else {
-            link.removeAttribute("aria-current");
-          }
-        });
-      });
-    },
-    { rootMargin: "-42% 0px -54% 0px", threshold: 0 }
+  themeButton.hidden = false;
+  applyTheme(document.documentElement.dataset.theme);
+  themeButton.addEventListener("click", () =>
+    applyTheme(
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark",
+      true,
+    ),
   );
 
-  sections.forEach((section) => activeObserver.observe(section));
-}
+  document.querySelectorAll("[data-case]").forEach((container) => {
+    const tabList = container.querySelector(".case-tabs");
+    const tabs = [...tabList.querySelectorAll("[data-tab]")];
+    const panels = [...container.querySelectorAll("[data-panel]")];
+    const prefix = container.dataset.case;
+    tabList.setAttribute("role", "tablist");
+    function selectTab(index, focus = false) {
+      tabs.forEach((tab, i) => {
+        tab.setAttribute("aria-selected", String(i === index));
+        tab.tabIndex = i === index ? 0 : -1;
+        panels[i].hidden = i !== index;
+      });
+      if (focus) tabs[index].focus();
+    }
+    tabs.forEach((tab, index) => {
+      tab.id = `${prefix}-tab-${tab.dataset.tab}`;
+      tab.setAttribute("role", "tab");
+      tab.setAttribute("aria-controls", `${prefix}-panel-${tab.dataset.tab}`);
+      const panel = panels[index];
+      panel.id = `${prefix}-panel-${tab.dataset.tab}`;
+      panel.setAttribute("role", "tabpanel");
+      panel.setAttribute("aria-labelledby", tab.id);
+      panel.classList.add("enhanced-panel");
+      panel.tabIndex = 0;
+      tab.addEventListener("click", () => selectTab(index));
+      tab.addEventListener("keydown", (event) => {
+        let next;
+        if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+        if (event.key === "ArrowLeft")
+          next = (index + tabs.length - 1) % tabs.length;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = tabs.length - 1;
+        if (next !== undefined) {
+          event.preventDefault();
+          selectTab(next, true);
+        }
+      });
+    });
+    selectTab(0);
+  });
 
-if (contactForm && formStatus) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const targetEmail = contactForm.dataset.email;
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const message = String(formData.get("message") || "").trim();
-
-    if (!targetEmail || !name || !email || !message) {
-      formStatus.textContent = "Completa los datos para preparar el correo.";
+  function openDetailsFromHash() {
+    let id;
+    try {
+      id = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
       return;
     }
-
-    const subject = `Nuevo proyecto web - ${name}`;
-    const body = [
-      `Hola Benjamin, soy ${name}.`,
-      "",
-      "Quiero conversar sobre este proyecto:",
-      message,
-      "",
-      `Mi correo: ${email}`,
-    ].join("\n");
-
-    const mailto = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    formStatus.textContent = "Listo. Se abrira tu correo con el mensaje preparado.";
-    window.location.href = mailto;
+    const detail = document.getElementById(id);
+    if (detail instanceof HTMLDetailsElement) detail.open = true;
+  }
+  openDetailsFromHash();
+  window.addEventListener("hashchange", openDetailsFromHash);
+  document.querySelectorAll("[data-open-case]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const detail = document.getElementById(link.dataset.openCase);
+      detail.open = true;
+      history.replaceState(null, "", `#${detail.id}`);
+      detail.scrollIntoView({
+        behavior: reduceMotion.matches ? "instant" : "smooth",
+        block: "center",
+      });
+      detail.querySelector("summary").focus({ preventScroll: true });
+    });
   });
-}
+
+  const form = document.getElementById("contactForm");
+  form.hidden = false;
+  const formStatus = document.getElementById("formStatus");
+  const ready = document.getElementById("draftReady");
+  const openMail = document.getElementById("openMail");
+  let preparedMessage = "";
+  async function copyText(text, status, success) {
+    try {
+      if (!navigator.clipboard?.writeText)
+        throw new Error("Clipboard unavailable");
+      await navigator.clipboard.writeText(text);
+      status.textContent = success;
+    } catch {
+      status.textContent =
+        "No se pudo copiar. Selecciona el texto o usa el enlace de correo.";
+    }
+  }
+  const copyEmail = document.getElementById("copyEmail");
+  copyEmail.hidden = false;
+  copyEmail.addEventListener("click", () =>
+    copyText(
+      form.dataset.email,
+      document.getElementById("copyStatus"),
+      "Correo copiado.",
+    ),
+  );
+  document
+    .getElementById("copyMessage")
+    .addEventListener("click", () =>
+      copyText(
+        preparedMessage,
+        formStatus,
+        "Mensaje copiado. Puedes pegarlo en tu correo.",
+      ),
+    );
+  form.addEventListener("input", () => {
+    ready.hidden = true;
+    preparedMessage = "";
+    formStatus.textContent = "";
+  });
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    if (!name || !email || !message) {
+      formStatus.textContent = "Completa los campos sin dejar solo espacios.";
+      return;
+    }
+    const subject = `Proyecto web · ${name}`;
+    preparedMessage = `Hola Benjamín, soy ${name}.\n\n${message}\n\nPuedes responderme a ${email}.`;
+    openMail.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(preparedMessage)}`;
+    ready.hidden = false;
+    formStatus.textContent =
+      "Borrador preparado. Elige abrir tu correo o copiar el mensaje.";
+    openMail.focus({ preventScroll: true });
+  });
+  document.querySelectorAll("[data-service]").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.getElementById("messageDraft").open = true;
+      const message = form.elements.message;
+      if (!message.value.trim())
+        message.value = `Me interesa ${link.dataset.service}. Mi negocio es `;
+      ready.hidden = true;
+      formStatus.textContent = "";
+    });
+  });
+})();
