@@ -1,0 +1,217 @@
+/* Light is painted once; pointer movement only changes transform and opacity. */
+.motion-stage {
+  --edge-a: #9e6aff;
+  --edge-b: #43d7f5;
+  position: relative;
+  isolation: isolate;
+  border-radius: 6px;
+}
+.motion-stage:has(.iguana-visual) {
+  --edge-a: #56da8f;
+  --edge-b: #dfbc65;
+}
+.motion-stage:has(.tecno-visual) {
+  --edge-a: #ff862f;
+  --edge-b: #e6468f;
+}
+.motion-stage:has(.portrait-visual) {
+  --edge-a: #f25b45;
+  --edge-b: #53b7ed;
+}
+.motion-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(125deg, var(--edge-a), var(--edge-b));
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 240ms var(--ease);
+  pointer-events: none;
+}
+.motion-surface,
+.portrait-visual {
+  display: block;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.motion-surface {
+  user-select: none;
+  transform: perspective(1100px) rotateX(0deg) rotateY(0deg);
+  transition: transform 240ms var(--ease);
+  backface-visibility: hidden;
+}
+.motion-stage.is-tracking .motion-surface {
+  transition: none;
+  will-change: transform;
+}
+.motion-surface img {
+  border-radius: 0;
+}
+.motion-edge,
+.motion-glass,
+.motion-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.motion-edge,
+.motion-rim {
+  z-index: 3;
+  padding: 3px;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.motion-rim {
+  background: linear-gradient(
+    130deg,
+    var(--edge-a),
+    transparent 38%,
+    var(--edge-b)
+  );
+  opacity: 0.65;
+  transition: opacity 180ms var(--ease);
+}
+.motion-edge {
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 180ms var(--ease);
+}
+.motion-light {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    #fff 0,
+    var(--edge-b) 14%,
+    var(--edge-a) 36%,
+    transparent 68%
+  );
+}
+.motion-glass {
+  z-index: 1;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 180ms var(--ease);
+}
+.motion-reflection {
+  display: block;
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, #fff 0, transparent 65%);
+  opacity: 0.13;
+}
+.motion-stage.is-tracking .motion-edge,
+.motion-stage.is-pressed .motion-edge,
+.motion-stage:focus-within .motion-rim {
+  opacity: 1;
+}
+.motion-stage.is-tracking .motion-glass {
+  opacity: 1;
+}
+.motion-stage.is-tracking::before,
+.motion-stage.is-pressed::before {
+  opacity: 0.5;
+}
+.motion-surface .image-action {
+  z-index: 4;
+}
+.portrait-visual:focus-visible .image-action {
+  opacity: 1;
+  transform: none;
+}
+.motion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  min-height: 44px;
+  padding: 5px 0;
+  font-size: 0.75rem;
+  margin-top: 12px;
+}
+.motion-symbol {
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+.motion-toggle[aria-pressed="false"] .motion-symbol {
+  color: var(--muted);
+}
+html[data-motion="off"] .motion-stage::before,
+html[data-motion="off"] .motion-edge,
+html[data-motion="off"] .motion-glass {
+  display: none;
+}
+html[data-motion="off"] .motion-surface,
+html[data-motion="off"] .project-visual img,
+html[data-motion="off"] .image-action {
+  transform: none !important;
+  transition: none;
+}
+html[data-motion="off"] .hero-copy,
+html[data-motion="off"] .featured-project,
+html[data-motion="off"] .case-content [role="tabpanel"] {
+  animation: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .motion-stage:hover .motion-rim {
+    opacity: 1;
+  }
+  .motion-stage:hover .image-action {
+    opacity: 1;
+    transform: none;
+  }
+  .motion-surface:hover img {
+    transform: none;
+  }
+  .motion-toggle:hover {
+    color: var(--text);
+  }
+}
+@media (max-width: 800px) {
+  .motion-edge,
+  .motion-rim {
+    padding: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion="on"]) .motion-surface,
+  html:not([data-motion="on"]) .motion-stage {
+    transform: none !important;
+  }
+  html:not([data-motion="on"]) .motion-edge,
+  html:not([data-motion="on"]) .motion-glass,
+  html:not([data-motion="on"]) .motion-stage::before {
+    display: none;
+  }
+  html[data-motion="on"] .motion-surface {
+    transition: transform 240ms var(--ease) !important;
+  }
+  html[data-motion="on"] .is-tracking .motion-surface {
+    transition: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .motion-edge,
+  .motion-glass,
+  .motion-rim,
+  .motion-stage::before {
+    display: none;
+  }
+}
