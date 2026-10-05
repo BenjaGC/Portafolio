@@ -25,6 +25,7 @@ Abrir `http://127.0.0.1:8765/`. GitHub Pages puede servir los archivos directame
 - `index.html`: contenido, servicios, proyectos y contacto.
 - `css/style.css`: paleta clara/oscura, composición y adaptación móvil.
 - `js/main.js`: navegación, pestañas accesibles, tema y preparación de correo.
+- `css/motion.css` y `js/motion.js`: profundidad de imágenes, luz en bordes y entradas al recorrer la página.
 - `img/`: capturas, retrato, favicon e imagen social.
 - `fonts/`: Manrope autoalojada y licencia SIL Open Font License.
 
@@ -34,12 +35,14 @@ Abrir `http://127.0.0.1:8765/`. GitHub Pages puede servir los archivos directame
 - Casos con pestañas navegables con flechas, Home y End. Sin JavaScript, las explicaciones siguen disponibles dentro de los desplegables.
 - Tema claro por defecto, oscuro opcional y preferencia guardada localmente.
 - Movimiento reducido respetado, foco visible y enlace para saltar al contenido.
+- Las imágenes responden al cursor con inclinación y un borde de luz; cada proyecto tiene su propia pareja de colores. En pantallas táctiles se usa una respuesta breve al tocar, sin bloquear el desplazamiento.
+- El control «Efectos activados» permite detener el movimiento. Por defecto se respeta la preferencia del dispositivo; el visitante puede activarlo expresamente. No hay animaciones infinitas ni seguimiento del cursor cuando está fuera de una imagen.
 - Capturas con dimensiones reservadas y WebP; carga prioritaria del proyecto de portada.
 - Se conservan los destinos `#trabajo`, `#servicios`, `#proceso`, `#stack` y `#contacto`.
 
 ## Contacto
 
-El correo directo está disponible sin JavaScript. El formulario opcional **prepara un borrador**, no envía mensajes al servidor. Permite abrir una aplicación de correo o copiar el mensaje. No almacena el contenido del formulario. El único dato persistido por el sitio es la preferencia de tema.
+El correo directo está disponible sin JavaScript. El formulario opcional **prepara un borrador**, no envía mensajes al servidor. Permite abrir una aplicación de correo o copiar el mensaje. No almacena el contenido del formulario. Solo se guardan localmente las preferencias de tema y efectos.
 
 ## Actualización de contenido
 
